@@ -1,0 +1,16 @@
+USE [RecapDatabase]
+GO
+
+/****** Object: Table [dbo].[Brands] Script Date: 26.04.2024 19:16:35 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Brands] (
+    [Id]        INT          IDENTITY (1, 1) NOT NULL,
+    [BrandName] VARCHAR (50) NULL
+);
+
+

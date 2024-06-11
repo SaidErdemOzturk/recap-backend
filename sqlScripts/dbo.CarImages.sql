@@ -1,0 +1,18 @@
+USE [RecapDatabase]
+GO
+
+/****** Object: Table [dbo].[CarImages] Script Date: 26.04.2024 19:19:10 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[CarImages] (
+    [Id]        INT           IDENTITY (1, 1) NOT NULL,
+    [CarId]     INT           NOT NULL,
+    [ImagePath] VARCHAR (500) NOT NULL,
+    [Date]      DATE          NULL
+);
+
+
