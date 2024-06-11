@@ -2,6 +2,7 @@
 using Business.Constans;
 using Core.Utilities.Business;
 using Core.Utilities.Helpers;
+using Core.Utilities.Helpers.FileHelper;
 using Core.Utilities.Results.Abstract;
 using Core.Utilities.Results.Concrete;
 using DataAccess.Abstract;
@@ -27,14 +28,13 @@ namespace Business.Concrete
             _fileHelper = fileHelper;
         }
 
-        public IResult Add(IFormFile formFile,CarImage carImage)
+        public IResult Add(IFormFile formFile, CarImage carImage)
         {
-            carImage = new CarImage() { CarId=3002};
+            carImage = new CarImage() { CarId = 3002 };
             var result = BusinessRules.Run(CheckIfCarImagesLimitedExceded(carImage.CarId));
-            if(result == null)
+            if (result == null)
             {
-                
-                carImage.ImagePath = _fileHelper.Add(DefaultObjects.ImagePath,formFile);
+                carImage.ImagePath = _fileHelper.Upload(formFile, DefaultObjects.ImagePath);
                 carImage.Date = DateTime.Now;
                 _carImageDal.Add(carImage);
                 return new SuccessResult();
@@ -62,7 +62,7 @@ namespace Business.Concrete
         public IDataResult<List<CarImage>> GetImagesByCarId(int id)
         {
             var result = _carImageDal.GetAll(c => c.CarId == id);
-            if(result == null)
+            if (result == null)
             {
                 return new SuccessDataResult<List<CarImage>>();
             }
@@ -71,14 +71,14 @@ namespace Business.Concrete
 
         public IResult Update(IFormFile formFile, CarImage carImage)
         {
-            carImage.ImagePath = _fileHelper.Update(DefaultObjects.ImagePath + carImage.ImagePath, formFile, DefaultObjects.ImagePath);
-            carImage.Date= DateTime.Now;
+            carImage.ImagePath = _fileHelper.Update(formFile, carImage.ImagePath, DefaultObjects.ImagePath);
+            carImage.Date = DateTime.Now;
             _carImageDal.Update(carImage);
             return new SuccessResult();
         }
         private IResult CheckIfCarImagesLimitedExceded(int carId)
         {
-            var result = _carImageDal.GetAll(c=>c.CarId==carId).Count;
+            var result = _carImageDal.GetAll(c => c.CarId == carId).Count;
             if (result < 5)
             {
                 return new SuccessResult();

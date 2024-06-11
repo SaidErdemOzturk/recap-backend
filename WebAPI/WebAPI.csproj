@@ -10,19 +10,22 @@
     <Content Remove="wwwroot\Uploads\Images\6453f6ae-41da-48af-bef4-54d33df6e601.png" />
   </ItemGroup>
 
+
+  <ItemGroup>
+    <None Include="wwwroot\Uploads\Images\6453f6ae-41da-48af-bef4-54d33df6e601.png" />
+  </ItemGroup>
+
+
   <ItemGroup>
     <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="9.0.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.3" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.6" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
   </ItemGroup>
+
 
   <ItemGroup>
     <ProjectReference Include="..\Business\Business.csproj" />
     <ProjectReference Include="..\Entities\Entities.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="wwwroot\Uploads\Images\6453f6ae-41da-48af-bef4-54d33df6e601.png" />
   </ItemGroup>
 
 </Project>

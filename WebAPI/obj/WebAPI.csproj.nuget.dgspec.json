@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\saide\\source\\repos\\ReCapProject\\WebAPI\\WebAPI.csproj": {}
+    "C:\\Projects\\recap-backend\\WebAPI\\WebAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\saide\\source\\repos\\ReCapProject\\Business\\Business.csproj": {
+    "C:\\Projects\\recap-backend\\Business\\Business.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\saide\\source\\repos\\ReCapProject\\Business\\Business.csproj",
+        "projectUniqueName": "C:\\Projects\\recap-backend\\Business\\Business.csproj",
         "projectName": "Business",
-        "projectPath": "C:\\Users\\saide\\source\\repos\\ReCapProject\\Business\\Business.csproj",
+        "projectPath": "C:\\Projects\\recap-backend\\Business\\Business.csproj",
         "packagesPath": "C:\\Users\\saide\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\saide\\source\\repos\\ReCapProject\\Business\\obj\\",
+        "outputPath": "C:\\Projects\\recap-backend\\Business\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\saide\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,16 +28,76 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\saide\\source\\repos\\KampFinalProjectt\\Core\\Core.csproj": {
-                "projectPath": "C:\\Users\\saide\\source\\repos\\KampFinalProjectt\\Core\\Core.csproj"
+              "C:\\Projects\\recap-backend\\Core\\Core.csproj": {
+                "projectPath": "C:\\Projects\\recap-backend\\Core\\Core.csproj"
               },
-              "C:\\Users\\saide\\source\\repos\\ReCapProject\\DataAccess\\DataAccess.csproj": {
-                "projectPath": "C:\\Users\\saide\\source\\repos\\ReCapProject\\DataAccess\\DataAccess.csproj"
+              "C:\\Projects\\recap-backend\\DataAccess\\DataAccess.csproj": {
+                "projectPath": "C:\\Projects\\recap-backend\\DataAccess\\DataAccess.csproj"
               },
-              "C:\\Users\\saide\\source\\repos\\ReCapProject\\Entities\\Entities.csproj": {
-                "projectPath": "C:\\Users\\saide\\source\\repos\\ReCapProject\\Entities\\Entities.csproj"
+              "C:\\Projects\\recap-backend\\Entities\\Entities.csproj": {
+                "projectPath": "C:\\Projects\\recap-backend\\Entities\\Entities.csproj"
               }
             }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Projects\\recap-backend\\Core\\Core.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Projects\\recap-backend\\Core\\Core.csproj",
+        "projectName": "Core",
+        "projectPath": "C:\\Projects\\recap-backend\\Core\\Core.csproj",
+        "packagesPath": "C:\\Users\\saide\\.nuget\\packages\\",
+        "outputPath": "C:\\Projects\\recap-backend\\Core\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\saide\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
           }
         },
         "warningProperties": {
@@ -59,6 +119,10 @@
               "target": "Package",
               "version": "[8.0.0, )"
             },
+            "Autofac.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
             "Autofac.Extras.DynamicProxy": {
               "target": "Package",
               "version": "[7.1.0, )"
@@ -66,6 +130,34 @@
             "FluentValidation": {
               "target": "Package",
               "version": "[11.9.0, )"
+            },
+            "Microsoft.AspNetCore.Http": {
+              "target": "Package",
+              "version": "[2.2.2, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.3, )"
+            },
+            "Microsoft.Extensions.Caching.Abstractions": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.Extensions.Configuration.Binder": {
+              "target": "Package",
+              "version": "[8.0.1, )"
+            },
+            "Microsoft.IdentityModel.Tokens": {
+              "target": "Package",
+              "version": "[6.35.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[6.35.0, )"
             }
           },
           "imports": [
@@ -88,14 +180,14 @@
         }
       }
     },
-    "C:\\Users\\saide\\source\\repos\\ReCapProject\\DataAccess\\DataAccess.csproj": {
+    "C:\\Projects\\recap-backend\\DataAccess\\DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\saide\\source\\repos\\ReCapProject\\DataAccess\\DataAccess.csproj",
+        "projectUniqueName": "C:\\Projects\\recap-backend\\DataAccess\\DataAccess.csproj",
         "projectName": "DataAccess",
-        "projectPath": "C:\\Users\\saide\\source\\repos\\ReCapProject\\DataAccess\\DataAccess.csproj",
+        "projectPath": "C:\\Projects\\recap-backend\\DataAccess\\DataAccess.csproj",
         "packagesPath": "C:\\Users\\saide\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\saide\\source\\repos\\ReCapProject\\DataAccess\\obj\\",
+        "outputPath": "C:\\Projects\\recap-backend\\DataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\saide\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -112,8 +204,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\saide\\source\\repos\\ReCapProject\\Entities\\Entities.csproj": {
-                "projectPath": "C:\\Users\\saide\\source\\repos\\ReCapProject\\Entities\\Entities.csproj"
+              "C:\\Projects\\recap-backend\\Entities\\Entities.csproj": {
+                "projectPath": "C:\\Projects\\recap-backend\\Entities\\Entities.csproj"
               }
             }
           }
@@ -158,14 +250,14 @@
         }
       }
     },
-    "C:\\Users\\saide\\source\\repos\\ReCapProject\\Entities\\Entities.csproj": {
+    "C:\\Projects\\recap-backend\\Entities\\Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\saide\\source\\repos\\ReCapProject\\Entities\\Entities.csproj",
+        "projectUniqueName": "C:\\Projects\\recap-backend\\Entities\\Entities.csproj",
         "projectName": "Entities",
-        "projectPath": "C:\\Users\\saide\\source\\repos\\ReCapProject\\Entities\\Entities.csproj",
+        "projectPath": "C:\\Projects\\recap-backend\\Entities\\Entities.csproj",
         "packagesPath": "C:\\Users\\saide\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\saide\\source\\repos\\ReCapProject\\Entities\\obj\\",
+        "outputPath": "C:\\Projects\\recap-backend\\Entities\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\saide\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -182,8 +274,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\saide\\source\\repos\\KampFinalProjectt\\Core\\Core.csproj": {
-                "projectPath": "C:\\Users\\saide\\source\\repos\\KampFinalProjectt\\Core\\Core.csproj"
+              "C:\\Projects\\recap-backend\\Core\\Core.csproj": {
+                "projectPath": "C:\\Projects\\recap-backend\\Core\\Core.csproj"
               }
             }
           }
@@ -222,14 +314,14 @@
         }
       }
     },
-    "C:\\Users\\saide\\source\\repos\\ReCapProject\\WebAPI\\WebAPI.csproj": {
+    "C:\\Projects\\recap-backend\\WebAPI\\WebAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\saide\\source\\repos\\ReCapProject\\WebAPI\\WebAPI.csproj",
+        "projectUniqueName": "C:\\Projects\\recap-backend\\WebAPI\\WebAPI.csproj",
         "projectName": "WebAPI",
-        "projectPath": "C:\\Users\\saide\\source\\repos\\ReCapProject\\WebAPI\\WebAPI.csproj",
+        "projectPath": "C:\\Projects\\recap-backend\\WebAPI\\WebAPI.csproj",
         "packagesPath": "C:\\Users\\saide\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\saide\\source\\repos\\ReCapProject\\WebAPI\\obj\\",
+        "outputPath": "C:\\Projects\\recap-backend\\WebAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\saide\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -246,11 +338,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\saide\\source\\repos\\ReCapProject\\Business\\Business.csproj": {
-                "projectPath": "C:\\Users\\saide\\source\\repos\\ReCapProject\\Business\\Business.csproj"
+              "C:\\Projects\\recap-backend\\Business\\Business.csproj": {
+                "projectPath": "C:\\Projects\\recap-backend\\Business\\Business.csproj"
               },
-              "C:\\Users\\saide\\source\\repos\\ReCapProject\\Entities\\Entities.csproj": {
-                "projectPath": "C:\\Users\\saide\\source\\repos\\ReCapProject\\Entities\\Entities.csproj"
+              "C:\\Projects\\recap-backend\\Entities\\Entities.csproj": {
+                "projectPath": "C:\\Projects\\recap-backend\\Entities\\Entities.csproj"
               }
             }
           }
@@ -276,11 +368,11 @@
             },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
-              "version": "[8.0.3, )"
+              "version": "[8.0.6, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[6.4.0, )"
+              "version": "[6.6.2, )"
             }
           },
           "imports": [
