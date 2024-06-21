@@ -25,8 +25,8 @@ namespace Business.Concrete
         {
             _rentalDal = rentalDal;
         }
-        [PerformanceAspect(5)]
-        [TransactionScopeAspect]
+        //[PerformanceAspect(5)]
+        //[TransactionScopeAspect]
         public IResult Add(Rental rental)
         {
             IResult result = BusinessRules.Run(CheckRentedCarIsDelivered(rental.CarId));
@@ -55,6 +55,11 @@ namespace Business.Concrete
         public IDataResult<Rental> GetById(int id)
         {
             return new SuccessDataResult<Rental>(_rentalDal.Get(r=>r.Id==id));
+        }
+
+        public IDataResult<List<Rental>> GetRentalsByCarId(int carId)
+        {
+            return new SuccessDataResult<List<Rental>>(_rentalDal.GetAll(r => r.CarId == carId));
         }
 
         public IDataResult <List<RentalDetailDto>> GetRentalWithDto()

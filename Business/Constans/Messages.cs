@@ -41,5 +41,8 @@ namespace Business.Constans
         public static string PasswordError = "Şifre hatası.";
         public static string SuccessfulLogin = "Giriş başarılı.";
         public static string UserNotFound = "Kullanıcı bulunamadı.";
+        internal static string CarImageDeleted = "Araç resmi silme işlemi başarılı.";
+        internal static string CarImageUpdated ="Araç remsi güncelleme işlemi başarılı";
+        internal static string CarImageAdded = " Araç resim ekleme işlemi başarılı";
     }
 }

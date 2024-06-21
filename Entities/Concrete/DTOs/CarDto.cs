@@ -9,8 +9,8 @@ namespace Entities.Concrete.DTOs
     public class CarDto
     {
         public int CarId { get; set; }
-        public string BrandName { get; set; }
-        public string ColorName { get; set; }
+        public Brand Brand { get; set; }
+        public Color Color { get; set; }
         public int DailyPrice { get; set; }
         public string ImagePath { get; set; }
     }

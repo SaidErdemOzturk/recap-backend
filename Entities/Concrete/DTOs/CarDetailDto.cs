@@ -11,9 +11,11 @@ namespace Entities.Concrete.DTOs
     public class CarDetailDto : IDto
     {
         public int CarId { get; set; }
-        public string BrandName { get; set; }
-        public string ColorName { get; set; }
+        public Brand Brand { get; set; }
+        public Color Color { get; set; }
         public int DailyPrice { get; set; }
         public List<CarImage> Images { get; set; }
+        public string Description { get; set; }
+        public int ModelYear { get; set; }
     }
 }

@@ -21,20 +21,22 @@ namespace DataAccess.Concrete.EntityFramework
             using (var context = new RecapContext())
             {
                 var result = (from c in context.Cars
-                              where c.Id == id
+                              where c.CarId == id
                               join color in context.Colors
-                              on c.ColorId equals color.Id
+                              on c.ColorId equals color.ColorId
                               join b in context.Brands
-                              on c.BrandId equals b.Id
+                              on c.BrandId equals b.BrandId
                               select new CarDetailDto
                               {
-                                  CarId = c.Id,
-                                  BrandName = b.BrandName,
-                                  ColorName = color.ColorName,
+                                  CarId = c.CarId,
+                                  Brand = b,
+                                  Color = color,
                                   DailyPrice = c.DailyPrice,
                                   Images = (from images in context.CarImages
                                             where images.CarId == id
-                                            select images).ToList()
+                                            select images).ToList(),
+                                  Description=c.Description,
+                                  ModelYear=c.ModelYear
                               }).FirstOrDefault();
                 return result;
             }
@@ -45,19 +47,19 @@ namespace DataAccess.Concrete.EntityFramework
             using (var context = new RecapContext())
             {
                 var result = from c in context.Cars
-                             join color in context.Colors on c.ColorId equals color.Id
-                             join b in context.Brands on c.BrandId equals b.Id
+                             join color in context.Colors on c.ColorId equals color.ColorId
+                             join b in context.Brands on c.BrandId equals b.BrandId
                              join imageGroup in (
                                  from image in context.CarImages
                                  group image by image.CarId into grouped
                                  select new { CarId = grouped.Key, ImagePath = grouped.FirstOrDefault().ImagePath }
-                             ) on c.Id equals imageGroup.CarId into imageGroups
+                             ) on c.CarId equals imageGroup.CarId into imageGroups
                              from image in imageGroups.DefaultIfEmpty()
                              select new CarDto()
                              {
-                                 CarId = c.Id,
-                                 BrandName = b.BrandName,
-                                 ColorName = color.ColorName,
+                                 CarId = c.CarId,
+                                 Brand = b,
+                                 Color = color,
                                  DailyPrice = c.DailyPrice,
                                  ImagePath = image != null ? image.ImagePath : null
                              };
@@ -71,17 +73,21 @@ namespace DataAccess.Concrete.EntityFramework
             {
                 var result = from c in context.Cars
                              join color in context.Colors
-                             on c.ColorId equals color.Id
+                             on c.ColorId equals color.ColorId
                              join b in context.Brands
-                             on c.BrandId equals b.Id
-                             join image in context.CarImages
-                             on c.Id equals image.CarId
+                             on c.BrandId equals b.BrandId
+                             join imageGroup in (
+                                 from image in context.CarImages
+                                 group image by image.CarId into grouped
+                                 select new { CarId = grouped.Key, ImagePath = grouped.FirstOrDefault().ImagePath }
+                             ) on c.CarId equals imageGroup.CarId into imageGroups
+                             from image in imageGroups.DefaultIfEmpty()
                              where c.BrandId == id
                              select new CarDto()
                              {
-                                 CarId = c.Id,
-                                 BrandName = b.BrandName,
-                                 ColorName = color.ColorName,
+                                 CarId = c.CarId,
+                                 Brand = b,
+                                 Color = color,
                                  DailyPrice = c.DailyPrice,
                                  ImagePath = image.ImagePath,
                              };
@@ -95,17 +101,21 @@ namespace DataAccess.Concrete.EntityFramework
             {
                 var result = from c in context.Cars
                              join color in context.Colors
-                             on c.ColorId equals color.Id
+                             on c.ColorId equals color.ColorId
                              join b in context.Brands
-                             on c.BrandId equals b.Id
-                             join image in context.CarImages
-                             on c.Id equals image.CarId
+                             on c.BrandId equals b.BrandId
+                             join imageGroup in (
+                                 from image in context.CarImages
+                                 group image by image.CarId into grouped
+                                 select new { CarId = grouped.Key, ImagePath = grouped.FirstOrDefault().ImagePath }
+                             ) on c.CarId equals imageGroup.CarId into imageGroups
+                             from image in imageGroups.DefaultIfEmpty()
                              where c.ColorId == id
                              select new CarDto()
                              {
-                                 CarId = c.Id,
-                                 BrandName = b.BrandName,
-                                 ColorName = color.ColorName,
+                                 CarId = c.CarId,
+                                 Brand = b,
+                                 Color = color,
                                  DailyPrice = c.DailyPrice,
                                  ImagePath = image.ImagePath,
 
