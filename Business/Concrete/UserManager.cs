@@ -4,6 +4,7 @@ using Core.Utilities.Results.Abstract;
 using Core.Utilities.Results.Concrete;
 using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework;
+using Entities.Concrete.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -51,6 +52,13 @@ namespace Business.Concrete
         public IDataResult<List<OperationClaim>> GetClaims(User user)
         {
             return new SuccessDataResult<List<OperationClaim>>(_userDal.GetClaims(user));
+        }
+
+        public IDataResult<UserDto> GetUserDtoByEmail(string email)
+        {
+            return new SuccessDataResult<UserDto>(_userDal.GetUserDtoByEmail(email));
+
+            throw new NotImplementedException();
         }
 
         public IResult Update(User user)

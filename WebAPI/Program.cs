@@ -4,6 +4,8 @@ using Autofac.Extensions.DependencyInjection;
 using Business.Abstract;
 using Business.Concrete;
 using Business.DependencyResolvers.Autofac;
+using Core.DependencyResolvers;
+using Core.Extensions;
 using Core.Utilities.IoC;
 using Core.Utilities.Security.Encryption;
 using Core.Utilities.Security.JWT;
@@ -34,7 +36,6 @@ namespace WebAPI
             var tokenOptions = builder.Configuration.GetSection("TokenOptions").Get<TokenOptions>();
 
             builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-
             builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>
                 {
@@ -49,6 +50,12 @@ namespace WebAPI
                         IssuerSigningKey = SecurityKeyHelper.CreateSecurityKey(tokenOptions.SecurityKey)
                     };
                 });
+
+            builder.Services.AddDependencyResolvers(new ICoreModule[]
+            {
+                new CoreModule()
+            });
+
             ServiceTool.Create(builder.Services);
 
 
@@ -90,6 +97,8 @@ namespace WebAPI
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+
+            app.ConfigureCustomExceptionMiddleware();
 
             app.UseCors(builder => builder.WithOrigins("http://localhost:4200").AllowAnyHeader());
 

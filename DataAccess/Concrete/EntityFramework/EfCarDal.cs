@@ -61,7 +61,8 @@ namespace DataAccess.Concrete.EntityFramework
                                  Brand = b,
                                  Color = color,
                                  DailyPrice = c.DailyPrice,
-                                 ImagePath = image != null ? image.ImagePath : null
+                                 ImagePath = image != null ? image.ImagePath : null,
+                                 Description=c.Description
                              };
                 return result.ToList();
             }
@@ -90,6 +91,7 @@ namespace DataAccess.Concrete.EntityFramework
                                  Color = color,
                                  DailyPrice = c.DailyPrice,
                                  ImagePath = image.ImagePath,
+                                 Description=c.Description
                              };
                 return result.ToList();
             }
@@ -118,6 +120,7 @@ namespace DataAccess.Concrete.EntityFramework
                                  Color = color,
                                  DailyPrice = c.DailyPrice,
                                  ImagePath = image.ImagePath,
+                                 Description=c.Description
 
                              };
                 return result.ToList();
