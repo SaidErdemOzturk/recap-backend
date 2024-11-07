@@ -34,7 +34,23 @@ namespace WebAPI
             });
 
             var tokenOptions = builder.Configuration.GetSection("TokenOptions").Get<TokenOptions>();
+            var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy(name: MyAllowSpecificOrigins,
+                                  builder =>
+                                  {
+                                      builder.WithOrigins("http://localhost:4200",
+                                          "http://saiderdemozturk.com",
+                                          "https://saiderdemozturk.com",
+                                          "www.saiderdemozturk.com",
+                                          "https://www.saiderdemozturk.com",
+                                          "http://www.saiderdemozturk.com")
+                                             .AllowAnyHeader()
+                                             .AllowAnyMethod();
 
+                                  });
+            });
             builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>
@@ -55,9 +71,6 @@ namespace WebAPI
             {
                 new CoreModule()
             });
-
-            ServiceTool.Create(builder.Services);
-
 
 
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -95,18 +108,22 @@ namespace WebAPI
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
-                app.UseSwaggerUI();
+                app.UseSwaggerUI(c =>
+                {
+                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+                    c.RoutePrefix = "swagger"; // swagger yolunu ayarlayýn
+                });
             }
 
             app.ConfigureCustomExceptionMiddleware();
-
-            app.UseCors(builder => builder.WithOrigins("http://localhost:4200").AllowAnyHeader());
 
             app.UseStaticFiles();
 
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors(MyAllowSpecificOrigins);
 
             app.UseAuthentication();
 

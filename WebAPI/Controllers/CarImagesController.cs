@@ -61,12 +61,10 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("update")]
-        public IActionResult Update(IFormFile formFile)
+        public IActionResult Update([FromForm] IFormFile formFile, [FromForm] string carImage)
         {
-            CarImage carImage = new CarImage() { CarId = 1002 };
-            carImage.Id = 2;
-            carImage.ImagePath = "79411e40-88a0-4b3a-b492-fae96ca177c9.png";
-            var result = _carImageService.Update(formFile,carImage);
+            var carImageModel = JsonConvert.DeserializeObject<CarImage>(carImage);
+            var result = _carImageService.Update(formFile, carImageModel);
             if (result.Success)
             {
                 return Ok(result);

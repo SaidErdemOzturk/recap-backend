@@ -25,8 +25,10 @@ namespace Business.Concrete
         {
             _rentalDal = rentalDal;
         }
-        //[PerformanceAspect(5)]
-        //[TransactionScopeAspect]
+
+
+        [PerformanceAspect(5)]
+        [TransactionScopeAspect]
         public IResult Add(Rental rental)
         {
             IResult result = BusinessRules.Run(CheckRentedCarIsDelivered(rental.CarId));

@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace Entities.Concrete.DTOs
 {
-    public class UserDto
+    public class UserClaimsDto
     {
-        public int Id { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+        public int UserId { get; set; }
+        public List<int> OperationClaims { get; set; }
     }
 }
